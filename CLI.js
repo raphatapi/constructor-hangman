@@ -3,7 +3,7 @@ var inquirer = require("inquirer");
 var Word = require("./words.js");
 
 var hangman = {
-  wordBank: ["ALABAMA", "ALASKA", "ARIZONA", "ARKANSAS", "CALIFORNIA", "COLORADO", "CONNECTICUT", "DELAWARE", "FLORIDA", "GEORGIA", "HAWAII", "IDAHO", "ILLINOIS", "INDIANA", "IOWA", "KANSAS", "KENTUCKY", "LOUISIANA", "MAINE", "MARYLAND", "MASSACHUSSETS", "MICHIGAN", "MINESSOTA", "MISSISSIPPI", "MISSOURI", "MONTANA", "NEBRASKA", "NEVADA", "NEW HAMPSHIRE", "NEW JERSEY", "NEW MEXICO", "NEW YORK", "NORTH CAROLINA", "NORTH DAKOTA", "OHIO", "OKLAHOMA", "OREGON", "PENNSYLVANIA", "RHODE ISLAND", "SOUTH CAROLINA", "SOUTH DAKOTA", "TENNESSEE", "TEXAS", "UTAH", "VERMONT", "VIRGINIA", "WASHINGTON", "WEST VIRGINIA", "WISCONSIN", "WYOMING"],
+  wordBank: ["BRAZIL", "ARGENTINA", "URUGUAY", "PARAGUAY", "CHILE", "BOLIVIA", "PERU", "COLOMBIA", "EQUADOR", "VENEZUELA", "SURINAME", "GUYANA"],
   guessesRemaining: 10,
   
   lettersGuessed: [],
@@ -17,23 +17,13 @@ var hangman = {
     if(this.lettersGuessed.length > 0){
       this.lettersGuessed = [];
     }
-
-    inquirer.prompt([{
-      name: "play",
-      type: "confirm",
-      message: "Ready?"
-    }]).then(function(answer) {
-      if(answer.play){
-        that.newGame();
-      } else{
-        console.log("Ok, exiting the game");
-      }
-    })},
+    this.newGame();
+  },
  
   newGame: function() {
     if(this.guessesRemaining === 10) {
-      console.log("Try to guess the correct names of different shark species!");
-      console.log("~~~~~~~~~~~~~~~~~~");
+      console.log("Let's test your knowledge on South American Countries!");
+      console.log("========================================");
       
       var randNum = Math.floor(Math.random()*this.wordBank.length);
       this.currentWord = new Word(this.wordBank[randNum]);
@@ -90,11 +80,12 @@ var hangman = {
 
             console.log("Letters guessed: " + that.lettersGuessed);
           } else{
-            console.log("Correct!");
+            console.log("You got it!");
           
               if(that.currentWord.didWeFindTheWord() === true){
+                console.log("===========================");
                 console.log(that.currentWord.wordRender());
-                console.log("You Win!");
+                console.log("Great Work!");
                 
               } else{
                 
@@ -107,11 +98,12 @@ var hangman = {
           if(that.guessesRemaining > 0 && that.currentWord.wordFound === false) {
             that.promptUser();
           }else if(that.guessesRemaining === 0){
-            console.log("You Lose! Game over!");
+            console.log("=============================");
+            console.log("OH NO! Better Luck Next Time!");
             console.log("The word is: " + that.currentWord.word);
           }
         } else{
-            console.log("You have already guessed that letter")
+            console.log("You have already guessed that letter");
             that.promptUser();
           }
 

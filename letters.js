@@ -1,23 +1,16 @@
 var Letter = function(ltr) {
-  
- 
    this.appear = false;
    this.letter = ltr;
-  
- 
    this.letterRender = function() {
-     if(this.letter == " "){ 
-       
-       this.appear = true;
+     if (this.letter === " ") { 
+       this.appear === true;
        return " ";
-     }if(this.appear === false){ 
+     } if (this.appear === false) { 
        return  " _ ";
-     } else{ 
+     } else { 
        return this.letter;
      }
- 
    };
  };
- 
  
  module.exports = Letter;

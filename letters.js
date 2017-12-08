@@ -9,7 +9,7 @@ var Letter = function(ltr) {
        return  " _ ";
      } else { 
        return this.letter;
-     }
+     };
    };
  };
  

@@ -27,7 +27,7 @@ var hangman = {
       
       var randNum = Math.floor(Math.random()*this.wordBank.length);
       this.currentWord = new Word(this.wordBank[randNum]);
-      this.currentWord.getLets();
+      this.currentWord.getLetters();
       
       console.log(this.currentWord.wordRender());
       this.promptUser();

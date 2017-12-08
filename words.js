@@ -1,11 +1,11 @@
 var Letter = require('./letters.js');
 
-function Word(wrd) {
-  this.word = wrd;
+function Word(word) {
+  this.word = word;
   this.letters = [];
   this.wordFound = false;
-  this.getLets = function() {
-    for (var i = 0; i<this.word.length; i++) {
+  this.getLetters = function() {
+    for (var i = 0; i < this.word.length; i++) {
       var newLetter = new Letter(this.word[i]);
       this.letters.push(newLetter);
     };

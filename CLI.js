@@ -102,13 +102,10 @@ var hangman = {
             console.log("OH NO! Better Luck Next Time!");
             console.log("The word is: " + that.currentWord.word);
           }
-        } else{
+        } else {
             console.log("You have already guessed that letter");
             that.promptUser();
           }
-
-
-
     });
   }
 }

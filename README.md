@@ -4,8 +4,9 @@
 
 ![Cunstructor](giphy.gif)
 
-#### Run this command:
+#### Run these commands:
 `npm install`
+
 `node CLI.js`
 
 #### Have Fun!
